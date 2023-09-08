@@ -1,0 +1,48 @@
+body{
+    background: black;
+    display: flex;
+    justify-content: center;
+}
+
+main, .container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 500px;
+}
+
+.container{
+    height: 600px;
+    margin-top: 5%;
+}
+
+main > div, .calcDisplay{
+    display: flex;
+    width: 25%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background: rgb(91, 177, 243);
+}
+
+.calcDisplay{
+    width: 400px;
+    height: 100px;
+    background: rgb(44, 3, 56);
+    color: aliceblue;
+    flex-direction: row;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+.clear,
+.equal{
+    height: 40%;
+}
+
+.clear{
+    background: rgb(255, 0, 51);
+}

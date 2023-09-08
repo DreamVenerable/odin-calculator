@@ -1,19 +1,11 @@
 //Adding function
-function getSum(a, b){
-    return a + b
-}
+const getSum = (a, b) => a + b
 
 //Subtracting function
-function getDifference(a, b){
-    return a - b
-}
+const getDifference = (a, b) => a - b
 
 //Multiplication function
-function getProduct(a, b){
-    return a * b
-}
+const getProduct = (a, b) => a * b
 
 //Adding function
-function getDivision(a, b){
-    return a / b
-}
+const getDivision = (a, b) => a / b

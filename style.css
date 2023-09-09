@@ -18,7 +18,7 @@ main, .container{
     margin-top: 5%;
 }
 
-main > div, .calcDisplay{
+main > div, #calcDisplay{
     display: flex;
     width: 25%;
     height: 20%;
@@ -28,7 +28,7 @@ main > div, .calcDisplay{
     background: rgb(91, 177, 243);
 }
 
-.calcDisplay{
+#calcDisplay{
     width: 400px;
     height: 100px;
     background: rgb(44, 3, 56);
@@ -38,11 +38,11 @@ main > div, .calcDisplay{
     font-size: xx-large;
 }
 
-.clear,
-.equal{
+#clear,
+#equals{
     height: 40%;
 }
 
-.clear{
+#clear{
     background: rgb(255, 0, 51);
 }

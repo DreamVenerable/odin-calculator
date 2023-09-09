@@ -103,3 +103,4 @@ const clearAll = () => {
 equals.addEventListener('click', getAnswer)
 
 clear.addEventListener('click', clearAll)
+``

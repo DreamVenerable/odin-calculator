@@ -31,16 +31,25 @@ main > div, #calcDisplay{
 #calcDisplay{
     width: 400px;
     height: 100px;
-    background: rgb(44, 3, 56);
+    background: black;
     color: aliceblue;
     flex-direction: row;
     justify-content: center;
     font-size: xx-large;
+    box-shadow: 0 -3px 10px 3px purple;
+}
+
+.op{
+    background: rgb(144, 89, 195);
 }
 
 #clear,
 #equals{
     height: 40%;
+}
+
+#equals{
+    background: rgb(144, 89, 195);
 }
 
 #clear{

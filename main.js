@@ -28,11 +28,11 @@ const refreshDisplayNum = () => {
     calcDisplay.innerText = currentDisplay
 }
 const refreshDisplayOp = () => {
-    currentDisplay = `${storageArr[0]} ${storageArr[2]}`
+    currentDisplay = `${storageArr[0].toFixed(2)} ${storageArr[2]}`
     calcDisplay.innerText = currentDisplay
 }
 const refreshDisplayAns = () => {
-    currentDisplay = `${storageArr[0]}`
+    currentDisplay = `${storageArr[0].toFixed(2)}`
     calcDisplay.innerText = currentDisplay
 }
 
@@ -79,9 +79,11 @@ const clearAll = () => {
 }
 
 const dotControl = () => {
+    if(storageArr[1] != ''){
     storageArr[1] = `${tempStorage[0]}.`
     tempStorage[0] = `${tempStorage[0]}.`
     refreshDisplayNum()
+    }else{return}
 }
 
 

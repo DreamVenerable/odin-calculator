@@ -93,14 +93,15 @@ main > div, #calcDisplay{
     background: rgba(219, 39, 75);
 }
 
+/* Pulse animation for calculator display */
 .pulsate {
     animation: pulse 0.5s 1 ease-out;
 }
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 -3px 10px 3px rgba(128, 0, 128),
-                    0 -3px 10px 3px rgba(128, 0, 128);
+        box-shadow: 0 -3px 10px 5px rgba(128, 0, 128),
+                    0 -3px 10px 5px rgba(128, 0, 128);
     }
     100% {
         box-shadow: 0 -3px 10px 1px rgba(128, 0, 128, 1),

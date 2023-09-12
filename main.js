@@ -16,8 +16,11 @@ const setLastIndex = (op) => {
     storageArr[2] = op
 }
 const getNumbers = (num) => {
-    tempStorage.push(num)
-    tempStorage = [tempStorage.toString().split(',').join('')]
+    if(tempStorage.toString().length <= 15){
+        tempStorage.push(num)
+        tempStorage = [tempStorage.toString().split(',').join('')]
+    }
+
 }
 const clearSecondIndex = () => storageArr[1] = ''
 const clearTempStorage = () => tempStorage[0] = ''
@@ -28,7 +31,7 @@ const getAnswer = () => {
     refreshDisplayAns()
 }
 const refreshDisplayNum = () => {
-    currentDisplay = `${storageArr[1]}`
+    currentDisplay = storageArr[1]
     calcDisplay.innerText = currentDisplay
 }
 const refreshDisplayOp = () => {

@@ -92,3 +92,27 @@ main > div, #calcDisplay{
 #clear:active{
     background: rgba(219, 39, 75);
 }
+
+
+
+@media (max-width: 650px) {
+
+    .container, main{
+        width: 300px;
+        height: 400px;
+    }
+
+    .container{
+        height: 480px;
+    }
+
+    #calcDisplay{
+        width: 300px;
+        height: 80px;
+    }
+
+    main > div, #calcDisplay{
+        font-size: x-large;
+    }
+
+}

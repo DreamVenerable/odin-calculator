@@ -23,6 +23,7 @@ const getNumbers = (num) => {
 
 }
 const clearSecondIndex = () => storageArr[1] = ''
+const clearThirdIndex = () => storageArr[2] = ''
 const clearTempStorage = () => tempStorage[0] = ''
 const getAnswer = () => {
     storageArr[1] = +storageArr[1]
@@ -46,6 +47,15 @@ const refreshDisplayAns = () => {
 const calculate = () => {
     if(storageArr[1] != ''){
         getAnswer()
+    }
+}
+
+const makeNegativePositive = (neg) => {
+    if(neg == '-' && storageArr[0] > 0 && storageArr[2] == '-'){
+        storageArr[0] = -Math.abs(storageArr[0])
+    }
+    else if(neg == '-' && storageArr[0] < 0){
+        storageArr[0] = Math.abs(storageArr[0])
     }
 }
 
@@ -117,6 +127,7 @@ const delDigit = () => {
 
 const addAnimationControl = () => {
     calcDisplay.classList.add('pulsate')
+    
     setTimeout(() => {
         calcDisplay.classList.remove('pulsate')
     }, 500)
@@ -132,8 +143,10 @@ numbers.forEach(e => {
 
 operators.forEach(e => {
     e.addEventListener('click', () => {
+        makeNegativePositive(e.innerText)
         calculate()
         clearSecondIndex()
+        clearThirdIndex()
         clearTempStorage()
         setLastIndex(e.innerText)
         refreshDisplayOp()
@@ -148,6 +161,7 @@ equals.addEventListener('click', () => {
     clearSecondIndex()
     clearTempStorage()
     enableDot()
+    clearThirdIndex()
 })
 
 clear.addEventListener('click', clearAll)

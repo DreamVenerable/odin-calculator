@@ -1,3 +1,7 @@
+*{
+    cursor: default;
+}
+
 body{
     background: black;
     display: flex;
@@ -53,5 +57,38 @@ main > div, #calcDisplay{
 }
 
 #clear{
-    background: rgb(255, 0, 51);
+    background: rgb(219, 39, 75);
+}
+
+/* Elements when hovered */
+#delete:hover,
+.num:hover,
+.enabled:hover{
+    background: rgba(91, 177, 243, 0.85);
+}
+
+#equals:hover,
+.op:hover{
+    background: rgba(144, 89, 195, 0.85);
+}
+
+#clear:hover{
+    background: rgba(219, 39, 75, 0.85);
+}
+
+
+/* Elements when clicked */
+#delete:active,
+.num:active,
+.enabled:active{
+    background: rgba(91, 177, 243);
+}
+
+#equals:active,
+.op:active{
+    background: rgba(144, 89, 195);
+}
+
+#clear:active{
+    background: rgba(219, 39, 75);
 }

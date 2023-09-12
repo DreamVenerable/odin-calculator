@@ -115,6 +115,12 @@ const delDigit = () => {
     refreshDisplayNum()
 }
 
+const addAnimationControl = () => {
+    calcDisplay.classList.add('pulsate')
+    setTimeout(() => {
+        calcDisplay.classList.remove('pulsate')
+    }, 500)
+}
 
 numbers.forEach(e => {
     e.addEventListener('click', () => {
@@ -137,6 +143,7 @@ operators.forEach(e => {
 
 
 equals.addEventListener('click', () => {
+    addAnimationControl()
     calculate()
     clearSecondIndex()
     clearTempStorage()

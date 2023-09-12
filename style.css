@@ -102,13 +102,9 @@ main > div, #calcDisplay{
         box-shadow: 0 -3px 10px 3px rgba(128, 0, 128),
                     0 -3px 10px 3px rgba(128, 0, 128);
     }
-    50% {
+    100% {
         box-shadow: 0 -3px 10px 1px rgba(128, 0, 128, 1),
                     0 -3px 10px 1px rgba(128, 0, 128, 0.5);
-    }
-    100% {
-        box-shadow: 0 -3px 10px 3px rgba(128, 0, 128),
-                    0 -3px 10px 3px rgba(128, 0, 128);
     }
 }
 

@@ -6,6 +6,7 @@ const operators = document.querySelectorAll('.op')
 const calcDisplay = document.getElementById('calcDisplay')
 const equals = document.getElementById('equals')
 const clear = document.getElementById('clear')
+const dot = document.querySelector('.enabled')
 
 const setSecondIndex = () => {
     storageArr[1] = tempStorage[0]
@@ -15,12 +16,14 @@ const setLastIndex = (op) => {
 }
 const getNumbers = (num) => {
     tempStorage.push(num)
-    tempStorage = [+tempStorage.toString().split(',').join('')]
+    tempStorage = [tempStorage.toString().split(',').join('')]
 }
 const clearSecondIndex = () => storageArr[1] = ''
 const clearTempStorage = () => tempStorage[0] = ''
 const getAnswer = () => {
+    storageArr[1] = +storageArr[1]
     storageArr[0] = operation(storageArr[0], storageArr[1], storageArr[2])
+    storageArr[0] = +storageArr[0].toFixed(2)
     refreshDisplayAns()
 }
 const refreshDisplayNum = () => {
@@ -28,11 +31,11 @@ const refreshDisplayNum = () => {
     calcDisplay.innerText = currentDisplay
 }
 const refreshDisplayOp = () => {
-    currentDisplay = `${storageArr[0].toFixed(2)} ${storageArr[2]}`
+    currentDisplay = `${storageArr[0]} ${storageArr[2]}`
     calcDisplay.innerText = currentDisplay
 }
 const refreshDisplayAns = () => {
-    currentDisplay = `${storageArr[0].toFixed(2)}`
+    currentDisplay = `${storageArr[0]}`
     calcDisplay.innerText = currentDisplay
 }
 
@@ -40,7 +43,9 @@ const calculate = () => {
     if(storageArr[1] != ''){
         getAnswer()
     }
-    else{return}
+    else{
+        return
+    }
 }
 
 //Adding function
@@ -76,14 +81,29 @@ const clearAll = () => {
     storageArr = [1, '', '*']
     clearTempStorage()
     refreshDisplayNum()
+    enableDot()
 }
 
 const dotControl = () => {
-    if(storageArr[1] != ''){
+    if(storageArr[1] != '' || storageArr[1] == 0 && dot.className !== 'disabled'){
     storageArr[1] = `${tempStorage[0]}.`
     tempStorage[0] = `${tempStorage[0]}.`
     refreshDisplayNum()
-    }else{return}
+    }
+}
+
+const disableDot = () => {
+    dot.classList = 'disabled'
+}
+
+const enableDot = () => {
+    dot.classList = 'enabled'
+}
+
+const checkDotClass = () => {
+    if(dot.className !== 'disabled'){
+        dotControl()
+    }
 }
 
 
@@ -102,6 +122,7 @@ operators.forEach(e => {
         clearTempStorage()
         setLastIndex(e.innerText)
         refreshDisplayOp()
+        enableDot()
     })
 });
 
@@ -109,8 +130,13 @@ operators.forEach(e => {
 equals.addEventListener('click', () => {
     calculate()
     clearSecondIndex()
+    clearTempStorage()
+    enableDot()
 })
 
 clear.addEventListener('click', clearAll)
 
-dot.addEventListener('click', dotControl)
+dot.addEventListener('click', () => {
+    checkDotClass()
+    disableDot()
+})

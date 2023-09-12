@@ -188,7 +188,6 @@ const keyLog = (e) => {
     const delKey = 'Backspace'
     const dotKey = '.'
     const key = e.key
-    console.log(e)
     if(!numKey.includes(key) 
        && !opKey.includes(key) 
        && !enterKey.includes(key) 

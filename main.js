@@ -6,6 +6,7 @@ const operators = document.querySelectorAll('.op')
 const calcDisplay = document.getElementById('calcDisplay')
 const equals = document.getElementById('equals')
 const clear = document.getElementById('clear')
+const del = document.getElementById('delete')
 const dot = document.querySelector('.enabled')
 
 const setSecondIndex = () => {
@@ -42,9 +43,6 @@ const refreshDisplayAns = () => {
 const calculate = () => {
     if(storageArr[1] != ''){
         getAnswer()
-    }
-    else{
-        return
     }
 }
 
@@ -106,6 +104,14 @@ const checkDotClass = () => {
     }
 }
 
+const delDigit = () => {
+    tempStorage = tempStorage.toString().split('')
+    tempStorage.pop()
+    tempStorage = [tempStorage.toString().split(',').join('')]
+    setSecondIndex()
+    refreshDisplayNum()
+}
+
 
 numbers.forEach(e => {
     e.addEventListener('click', () => {
@@ -140,3 +146,5 @@ dot.addEventListener('click', () => {
     checkDotClass()
     disableDot()
 })
+
+del.addEventListener('click', delDigit)

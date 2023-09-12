@@ -188,6 +188,7 @@ const keyLog = (e) => {
     const delKey = 'Backspace'
     const dotKey = '.'
     const key = e.key
+    console.log(e)
     if(!numKey.includes(key) 
        && !opKey.includes(key) 
        && !enterKey.includes(key) 
@@ -212,7 +213,7 @@ const keyLog = (e) => {
         refreshDisplayOp()
         enableDot()
     }
-    else if(enterKey.includes(key)){
+    else if(enterKey == key){
         addAnimationControl()
         calculate()
         clearSecondIndex()
@@ -220,10 +221,10 @@ const keyLog = (e) => {
         enableDot()
         clearThirdIndex()
     }
-    else if(delKey.includes(key)){
+    else if(delKey == key){
         delDigit()
     }
-    else if(dotKey.includes(key)){
+    else if(dotKey == key){
         checkDotClass()
         disableDot()
     }

@@ -133,8 +133,15 @@ const addAnimationControl = () => {
     }, 500)
 }
 
+const resetToDefault = () => {
+    if(storageArr[1] == '' && storageArr[2] == ''){
+        storageArr = [1, '', '*']
+    }
+}
+
 numbers.forEach(e => {
     e.addEventListener('click', () => {
+        resetToDefault()
         getNumbers(e.innerText)
         setSecondIndex()
         refreshDisplayNum()

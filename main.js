@@ -179,3 +179,55 @@ dot.addEventListener('click', () => {
 })
 
 del.addEventListener('click', delDigit)
+
+
+const keyLog = (e) => {
+    const numKey = '0123456789'
+    const opKey = '*-+/'
+    const enterKey = 'Enter'
+    const delKey = 'Backspace'
+    const dotKey = '.'
+    const key = e.key
+    if(!numKey.includes(key) 
+       && !opKey.includes(key) 
+       && !enterKey.includes(key) 
+       && !delKey.includes(key) 
+       && !dotKey.includes(key))
+    {
+        e.preventDefault()
+    }
+    else if(numKey.includes(key)){
+        resetToDefault()
+        getNumbers(key)
+        setSecondIndex()
+        refreshDisplayNum()
+    }
+    else if(opKey.includes(key)){
+        makeNegativePositive(key)
+        calculate()
+        clearSecondIndex()
+        clearThirdIndex()
+        clearTempStorage()
+        setLastIndex(key)
+        refreshDisplayOp()
+        enableDot()
+    }
+    else if(enterKey.includes(key)){
+        addAnimationControl()
+        calculate()
+        clearSecondIndex()
+        clearTempStorage()
+        enableDot()
+        clearThirdIndex()
+    }
+    else if(delKey.includes(key)){
+        delDigit()
+    }
+    else if(dotKey.includes(key)){
+        checkDotClass()
+        disableDot()
+    }
+}
+
+document.body.addEventListener('keydown', keyLog)
+

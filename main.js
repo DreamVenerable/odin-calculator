@@ -20,7 +20,6 @@ const getNumbers = (num) => {
         tempStorage.push(num)
         tempStorage = [tempStorage.toString().split(',').join('')]
     }
-
 }
 const clearSecondIndex = () => storageArr[1] = ''
 const clearThirdIndex = () => storageArr[2] = ''
@@ -59,32 +58,12 @@ const makeNegativePositive = (neg) => {
     }
 }
 
-//Adding function
-const getSum = (a, b) => a + b
-
-//Subtracting function
-const getDifference = (a, b) => a - b
-
-//Multiplication function
-const getProduct = (a, b) => a * b
-
-//Adding function
-const getDivision = (a, b) => a / b
-
 //Operation function
 const operation = (a, b, c) => {
-    if(c === '+'){
-        return getSum(a, b)
-    }
-    else if(c === '-'){
-        return getDifference(a, b)
-    }
-    else if(c === '*'){
-        return getProduct(a, b)
-    }
-    else if(c === '/'){
-        return getDivision(a, b)
-    }
+    if(c === '+') return a + b
+    if(c === '-') return a - b
+    if(c === '*') return a * b
+    if(c === '/') return a / b
 }
 
 const clearAll = () => {
@@ -102,15 +81,8 @@ const dotControl = () => {
     refreshDisplayNum()
     }
 }
-
-const disableDot = () => {
-    dot.classList = 'disabled'
-}
-
-const enableDot = () => {
-    dot.classList = 'enabled'
-}
-
+const disableDot = () => dot.classList = 'disabled'
+const enableDot = () => dot.classList = 'enabled'
 const checkDotClass = () => {
     if(dot.className !== 'disabled'){
         dotControl()
@@ -188,12 +160,7 @@ const keyLog = (e) => {
     const delKey = 'Backspace'
     const dotKey = '.'
     const key = e.key
-    if(!numKey.includes(key) 
-       && !opKey.includes(key) 
-       && !enterKey.includes(key) 
-       && !delKey.includes(key) 
-       && !dotKey.includes(key))
-    {
+    if(!numKey.includes(key) && !opKey.includes(key) && !enterKey.includes(key) && !delKey.includes(key) && !dotKey.includes(key)){
         e.preventDefault()
     }
     else if(numKey.includes(key)){
@@ -203,31 +170,24 @@ const keyLog = (e) => {
         refreshDisplayNum()
     }
     else if(opKey.includes(key)){
-        makeNegativePositive(key)
-        calculate()
-        clearSecondIndex()
-        clearThirdIndex()
-        clearTempStorage()
-        setLastIndex(key)
-        refreshDisplayOp()
-        enableDot()
+            makeNegativePositive(key)
+            calculate()
+            clearSecondIndex()
+            clearThirdIndex()
+            clearTempStorage()
+            setLastIndex(key)
+            refreshDisplayOp()
+            enableDot()
     }
     else if(enterKey == key){
-        addAnimationControl()
-        calculate()
-        clearSecondIndex()
-        clearTempStorage()
-        enableDot()
-        clearThirdIndex()
+        equals.click()
     }
     else if(delKey == key){
-        delDigit()
+        del.click()
     }
     else if(dotKey == key){
-        checkDotClass()
-        disableDot()
+        dot.click()
     }
 }
 
 document.body.addEventListener('keydown', keyLog)
-
